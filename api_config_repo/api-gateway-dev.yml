@@ -1,0 +1,56 @@
+api:
+  filter:
+    path:
+      prefix: /api
+  max:
+    access: 1000
+app:
+  name:
+    list: open-videos
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+openvideos:
+  ribbon:
+    ConnectTimout: 4000
+    ReadTimeout: 4000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      pool-name: HikariPool
+    password: xxxxxxx
+    url: jdbc:mysql://ip:port/database?characterEncoding=utf-8
+    username: xxx
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        max_fetch_depth: 1
+    show-sql: true
+  redis:
+    host: xxxx
+    password: xxx
+    port: xxxx
+token:
+  expire:
+    times: 120
+zuul:
+  routes:
+    openvideos:
+      path: /api/openvideos/**
+      serviceId: openvideos

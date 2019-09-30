@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api-services-config-server
+  profiles:
+    active: native
+
+
+  cloud:
+    config:
+      server:
+#        git:
+#          uri:  git url
+#          username: xx
+#          password: xxxx
+        native:
+          search-locations: file:///xxxxxxx/api-config-repo
+#          search-locations: classpath:/config-repo
+
+
+server:
+  port: 8787
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka

@@ -1,0 +1,9 @@
+myvideo:
+  appkey: xxxx (appkey)
+  token: xxx (your appkey  token )
+
+spring:
+  mvc:
+    static-path-pattern: /statics/**
+  resources:
+    static-locations: classpath:/statics/

@@ -1,0 +1,8 @@
+mongo:
+  max:
+    pagesize: 60
+spring:
+  data:
+    mongodb:
+      database: m3u8
+      uri: mongodb://user:pass@ip@port/?authSource=database
